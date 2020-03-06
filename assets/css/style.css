@@ -1,0 +1,49 @@
+/* TODO : to be removed */
+body {
+    background-color: #f1f1f1;
+}
+
+.contactus-title {
+    font-family: 'Raleway', sans-serif;
+}
+
+#contactUsForm {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#contactUsForm .form-group {
+    margin-bottom: 0;
+}
+
+#contactUsForm input, #contactUsForm textarea {
+    margin-bottom: 5px;
+}
+
+#contactUsForm span {
+    float: right;
+    height: 0;
+    position: relative;
+    top: -37px;
+    right: 10px;
+    color: red;
+    font-size: 23px;
+
+}
+
+#contactUsForm textarea {
+    height: 170px !important;
+}
+
+#contactUsForm .inputIcon {
+    height: 0;
+    float: left;
+    position: relative;
+    top: -30px;
+    left: 10px;
+    color: #999;
+}
+
+#contactUsForm input {
+    padding: 0 35px;
+}
