@@ -49,3 +49,11 @@ h2 .btn-link:hover{
 footer .container{
     text-align: center;
 }
+
+.pages{
+    margin: 0 35%;
+}
+
+.page-item{
+    padding: 10px;
+}
