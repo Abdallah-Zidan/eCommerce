@@ -138,26 +138,17 @@
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
 
-    <!-- <div class="pageBtn clearfix pagination">
-    <input class="page-item" type="button" id="first" onclick="firstPage()" value="first" />
-	<input type="button" id="next" onclick="nextPage()" value="next" />
-	<input type="button" id="previous" onclick="previousPage()" value="previous" />
-	<input type="button" id="last" onclick="lastPage()" value="last" />
-    </div> -->
-
-
-
     <div class="pages clearfix">
         <nav aria-label="...">
             <ul class="pagination">
-                <li class="page-item"id="first" onclick="firstPage()" ><a class="page-link" href="#">first</a></li>
+                <li class="page-item"id="first" onclick="getProducts(1);" ><a class="page-link" href="#">first</a></li>
               <li class="page-item " id="previous" onclick="previousPage()">
                 <a class="page-link" href="#" tabindex="-1">Previous</a>
               </li>
               <li class="page-item" id="next" onclick="nextPage()">
                 <a class="page-link" href="#">Next</a>
               </li>
-              <li class="page-item " id="last" onclick="lastPage()">
+              <li class="page-item " id="last" onclick="getProducts(13);">
                 <a class="page-link" href="#">last</a>
               </li>
             </ul>
