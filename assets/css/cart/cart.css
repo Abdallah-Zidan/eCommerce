@@ -1,0 +1,61 @@
+body {
+  background-color: #323742;
+  color: #fff8e1;
+}
+
+.item-price {
+  font-size: 1.3rem;
+}
+
+#counter {
+  font-size: 1.3rem;
+}
+
+#counter .input-field .items-count,
+.total-price {
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 660px) {
+  .product-name,
+  .item-price {
+    font-size: 1.2rem;
+  }
+  .card-image img {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 100px) {
+  .card-image img {
+    height: 150px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .card {
+    margin: 10px 10px;
+  }
+}
+@media screen and (max-width: 1190px) {
+  .product-name,
+  .item-price,
+  .cart-part {
+    font-size: 1.3rem;
+  }
+  #item-price {
+    width: 30%;
+  }
+  #buttons {
+    width: 60%;
+  }
+}
+.card {
+  background-color: #292f3b;
+}
+.shopping_cart {
+  color: #cfcfcf;
+}
+#checkout-btn {
+  font-size: 1.3rem;
+  color: #333946;
+  width: 30%;
+}
