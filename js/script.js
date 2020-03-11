@@ -10,10 +10,11 @@ function getProducts(page){
         let output=""
         data.data.forEach(product => {
             output +=`
+            <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
-                <div class="product-img">
-                    <img src="${product.ProductPicUrl}" alt="">
+                <div class="product-img ">
+                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg">
                 </div>
 
                 <!-- Product Description -->
@@ -21,22 +22,23 @@ function getProducts(page){
                     <!-- Product Meta Data -->
                     <div class="product-meta-data">
                         <div class="line"></div>
-                        <p class="product-price">$${product.Price}</p>
+                        <p class="product-price">${product.CurrencyCode} ${product.Price}</p>
                             <h6>${product.Name}</h6>
                         
                     </div>
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>`
 
                 document.getElementById("postPlace").innerHTML =output;
-            console.log(product.Category);
-            console.log(product.SupplierName);
+            console.log("category: "+product.Category);
+            // console.log(product.SupplierName);
             
             
         });
