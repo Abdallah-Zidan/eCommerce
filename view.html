@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <button type="button" pid="HT-1001" class="btn btn-show btn-primary" data-toggle="modal"
+            data-target="#exampleModalCenteredScrollable">
+            p1
+        </button>
+
+        <button type="button" pid="HT-1002" class="btn btn-show btn-primary" data-toggle="modal"
+            data-target="#exampleModalCenteredScrollable">
+            p2
+        </button>
+        <div id="exampleModalCenteredScrollable" class="modal fade" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenteredScrollableTitle" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title prod_name" id="exampleModalCenteredScrollableTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="container-fluid">
+                            <div class="row no-gutters">
+
+                                <div class="col-md-6">
+                                    <img src="" alt="" id="prod_img" class="prod_image card-img">
+
+
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card-body" id="prod_details">
+                                        <ul>
+                                            <li>
+                                                <p id="prod_mainCat" class=""></p>
+                                            </li>
+                                            <li>
+                                                <p id="prod_Cat" class=""></p>
+                                            </li>
+                                            <li>
+                                                <p id="prod_price" class=""></p>
+                                            </li>
+                                            <li>
+                                                <p id="prod_status" class=""></p>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <p id="prod_desc" class=""></p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="viewProduct.js"></script>
+</body>
+
+</html>
