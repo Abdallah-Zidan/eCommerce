@@ -116,17 +116,21 @@ function filterByCat(category){
 
 
 $("input[type='checkbox']").change(function() {
-    console.log("checked");
+    
     if($(this).is (':checked')) {
         filterByCat($(this).attr("name"));
     }
+    clearChecks();
+    $(this).prop('checked', true);
 });
 
 
 
 /////////////////////////clear checks
 function clearChecks(){
-    if($("input[type='checkbox']").is (':checked'))
-    { $(this).prop('checked', false);
-        }
+    if($("input[type='checkbox']").is(':checked'))
+    {   console.log("enterd if")
+        $("input[type='checkbox']").prop('checked', false);
+        
+     }
 }
