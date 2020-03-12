@@ -28,11 +28,6 @@ function toggleSendBtnStatus() {
     isValidInputs() ? enableSendBtn() : disableSendBtn();
 }
 
-username.addEventListener('input', toggleSendBtnStatus);
-userEmail.addEventListener('input', toggleSendBtnStatus);
-msgSubject.addEventListener('input', toggleSendBtnStatus);
-msgBody.addEventListener('input', toggleSendBtnStatus);
-
 function showMessageStatus(alertType, message) {
     let alert = document.createElement("div");
     alert.classList.add("alert", alertType, "alert-dismissible", "fade", "show");
@@ -65,6 +60,40 @@ function enableFormElements() {
     msgBody.removeAttribute("disabled");
 }
 
+[username, userEmail, msgSubject, msgBody].forEach(
+    (element) => element.addEventListener('input', toggleSendBtnStatus)
+);
+
+let xhr = new XMLHttpRequest();
+xhr.timeout = 5000;
+
+// xhr events
+xhr.ontimeout = function () {
+    showMessageStatus("alert-danger", "Message took too long to send. Aborting..");
+    xhr.abort();
+    sendBtn.innerHTML = '<i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send';
+    enableFormElements();
+};
+
+xhr.onerror = function () {
+    showMessageStatus("alert-danger", "Failed to send your message");
+    sendBtn.innerHTML = '<i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send';
+    enableFormElements();
+};
+
+xhr.onreadystatechange = function () {
+    if (xhr.status === 200 && xhr.readyState === 4) {
+        let res = JSON.parse(xhr.responseText);
+        let responseStatus = res.status;
+        let alertType = responseStatus ? "alert-success" : "alert-warning";
+        showMessageStatus(alertType, res.message);
+        // set sending btn to its default
+        sendBtn.innerHTML = '<i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send';
+        enableFormElements();
+    }
+};
+
+
 sendBtn.addEventListener('click', function (ev) {
 
     ev.preventDefault();
@@ -84,35 +113,6 @@ sendBtn.addEventListener('click', function (ev) {
         sendBtn.appendChild(loadingIcon);
         sendBtn.append(" Sending..");
     }
-
-    let xhr = new XMLHttpRequest();
-
-    xhr.timeout = 5000;
-
-    xhr.ontimeout = function (e) {
-        showMessageStatus("alert-danger", "Message took too long to send. Aborting..");
-        xhr.abort();
-        sendBtn.innerHTML = '<i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send';
-        enableFormElements();
-    };
-
-    xhr.onerror = function (e) {
-        showMessageStatus("alert-danger", "Failed to send your message");
-        sendBtn.innerHTML = '<i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send';
-        enableFormElements();
-    };
-
-    xhr.onreadystatechange = function () {
-        if (xhr.status === 200 && xhr.readyState === 4) {
-            let res = JSON.parse(xhr.responseText);
-            let responseStatus = res.status;
-            let alertType = responseStatus ? "alert-success" : "alert-warning";
-            showMessageStatus(alertType, res.message);
-            // set sending btn to its default
-            sendBtn.innerHTML = '<i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send';
-            enableFormElements();
-        }
-    };
 
     let payload = {
         "name": username.value,
