@@ -20,7 +20,7 @@ body {
     margin-bottom: 5px;
 }
 
-#contactUsForm span {
+#contactUsForm .mandatoryField {
     float: right;
     height: 0;
     position: relative;

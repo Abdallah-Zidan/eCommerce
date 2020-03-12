@@ -17,25 +17,28 @@
     <h1 class="text-center contactus-title">Contact us</h1>
     <form id="contactUsForm">
         <div class="form-group">
-            <input class="form-control" type="text" name="username" placeholder="Type your name.." minlength="3"
+            <input id="username" class="form-control" type="text" name="username" placeholder="Type your name.."
+                   minlength="3"
                    maxlength="50" required>
-            <span>*</span>
+            <span class="mandatoryField">*</span>
             <i class="fa fa-user inputIcon"></i>
         </div>
         <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="user@domain.com" required>
+            <input id="userEmail" class="form-control" type="email" name="email" placeholder="user@domain.com" required>
             <i class="fa fa-envelope inputIcon"></i>
-            <span>*</span>
+            <span class="mandatoryField">*</span>
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Subject.." required>
+            <input id="msgSubject" class="form-control" type="text" placeholder="Subject.." required>
             <i class="fa fa-file inputIcon"></i>
-            <span>*</span>
+            <span class="mandatoryField">*</span>
         </div>
         <div class="form-group">
-            <textarea class="form-control" placeholder="Your message.." required></textarea>
+            <textarea id="msgBody" class="form-control" placeholder="Your message.." required></textarea>
         </div>
-        <button class="btn btn-success"><i class="fa fa-"></i>Send</button>
+        <button id="sendBtn" class="btn btn-success" disabled>
+            <i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send
+        </button>
     </form>
 </div>
 <!-- end form-->
