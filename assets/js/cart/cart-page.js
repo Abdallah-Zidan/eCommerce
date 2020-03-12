@@ -3,9 +3,10 @@ const totalPrice = document.querySelector("#total-price-value");
 const checkoutBtn = document.querySelector("#checkout-btn");
 const db = createDB();
 
-// 2- query details of each product
-
+// get saved products from local storage
 let cartProducts = getDataFromLocalStorage();
+
+// fetch details of each product from api using product id
 cartProducts.forEach(product => {
   const xhr = new XMLHttpRequest();
   xhr.open(
@@ -17,30 +18,24 @@ cartProducts.forEach(product => {
     if (xhr.status === 200) {
       let data = JSON.parse(xhr.response);
       let productData = data.data;
-      console.log(productData);
+      // check if the product is available
       if (productData.Status === "Available") {
+        // create a product card using product html template
         createProductCard(productData, product.amount);
       }
+      // calculate products total price
       calculateTotal();
-      addEventListeners();
+      addEventListeners(product.id);
     } else {
       console.log("couldn't retrieve data");
     }
   };
 });
 
-function fillTemplate(templateHml, data) {
-  Object.keys(data).forEach(function(key) {
-    let placeHolder = "{{" + key + "}}";
-    let val = data[key];
-    while (templateHml.indexOf(placeHolder) !== -1) {
-      templateHml = templateHml.replace(placeHolder, val);
-    }
-  });
-  return templateHml;
-}
-
 function createProductCard(productData, amount) {
+  if (amount >= productData.Quantity) {
+    amount = productData.Quantity;
+  }
   let data = {
     productPicture: productData.ProductPicUrl,
     productId: productData.ProductId,
@@ -54,61 +49,57 @@ function createProductCard(productData, amount) {
   let div = document.createElement("div");
   attr.value = productData.ProductId;
   div.setAttributeNode(attr);
-  div.classList.add(...["col", "s12", "m6", "l4", "xl3"]);
+  div.classList.add(...["col-sm-12", "col-md-6", "col-lg-4"]);
   let template = document.querySelector("#template-card");
   let html = fillTemplate(template.innerHTML, data);
   div.innerHTML = html;
   cards.appendChild(div);
 }
 
-function addEventListeners() {
-  let addBtns = document.querySelectorAll(".addBtn");
-  let removeBtns = document.querySelectorAll(".removeBtn");
-  let deleteBtns = document.querySelectorAll(".deleteBtn");
-  addBtnsListeners(addBtns);
-  removeBtnsListeners(removeBtns);
-  deleteBtnsListeners(deleteBtns);
+function addEventListeners(pid) {
+  let addBtn = document.querySelector(`.addBtn[pid=${pid}]`);
+  let removeBtn = document.querySelector(`.removeBtn[pid=${pid}]`);
+  let deleteBtn = document.querySelector(`.deleteBtn[pid=${pid}]`);
+  addBtnListener(addBtn);
+  removeBtnListener(removeBtn);
+  deleteBtnListener(deleteBtn);
 }
 
-function addBtnsListeners(addBtns) {
-  for (const btn of addBtns) {
-    let btnPid = btn.getAttribute("pid");
-    let input = $(`input[pid=${btnPid}]`);
-    let qty = input.attr("qty");
-    btn.addEventListener("click", e => {
-      if (Number(input.val()) < Number(qty)) {
-        input.val(Number(input.val()) + 1);
-        calculateTotal();
-      }
-    });
-  }
+function addBtnListener(addBtn) {
+  let btnPid = addBtn.getAttribute("pid");
+  let input = $(`input[pid=${btnPid}]`);
+  let qty = input.attr("qty");
+  addBtn.addEventListener("click", e => {
+    if (Number(input.val()) < Number(qty)) {
+      input.val(Number(input.val()) + 1);
+      incrementItem(btnPid);
+      calculateTotal();
+    }
+  });
 }
 
-function removeBtnsListeners(addBtns) {
-  for (const btn of addBtns) {
-    let btnPid = btn.getAttribute("pid");
-    let input = $(`input[pid=${btnPid}]`);
-    btn.addEventListener("click", e => {
-      if (Number(input.val()) > 1) {
-        input.val(Number(input.val()) - 1);
-        calculateTotal();
-      }
-    });
-  }
+function removeBtnListener(removeBtn) {
+  let btnPid = removeBtn.getAttribute("pid");
+  let input = $(`input[pid=${btnPid}]`);
+  removeBtn.addEventListener("click", e => {
+    if (Number(input.val()) > 1) {
+      input.val(Number(input.val()) - 1);
+      decrementItem(btnPid);
+      calculateTotal();
+    }
+  });
 }
 
-function deleteBtnsListeners(deleteBtns) {
-  for (const btn of deleteBtns) {
-    let btnPid = btn.getAttribute("pid");
-    let div = $(`div[pid=${btnPid}]`);
-    btn.addEventListener("click", e => {
-      div.fadeOut(400, function() {
-        $(this).remove();
-        deleteItemFromLocalStorage(btnPid, getDataFromLocalStorage());
-        calculateTotal();
-      });
+function deleteBtnListener(deleteBtn) {
+  let btnPid = deleteBtn.getAttribute("pid");
+  let div = $(`div[pid=${btnPid}]`);
+  deleteBtn.addEventListener("click", e => {
+    div.fadeOut(400, function() {
+      $(this).remove();
+      deleteItemFromLocalStorage(btnPid, getDataFromLocalStorage());
+      calculateTotal();
     });
-  }
+  });
 }
 
 function calculateTotal() {
@@ -151,6 +142,7 @@ function getProductData(product) {
     name: name
   };
 }
-let products = getDataFromLocalStorage();
-addItemToLocalStorage({ id: "HT-1001", amount: 4 }, products);
-addItemToLocalStorage({ id: "HT-1002", amount: 2 }, products);
+
+addItemToLocalStorage("HT-1003", 15);
+addItemToLocalStorage("HT-1001", 10);
+addItemToLocalStorage("HT-1002", 15);

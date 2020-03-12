@@ -1,8 +1,13 @@
 body {
-  background-color: #323742;
-  color: #fff8e1;
-}
+  background-color: #c3c9c9;
+  color: #fff;
 
+  font-family: "Roboto", sans-serif;
+}
+.items-count {
+  width: 70%;
+  text-align: center;
+}
 .item-price {
   font-size: 1.3rem;
 }
@@ -16,46 +21,36 @@ body {
   font-size: 1.3rem;
 }
 
-@media screen and (max-width: 660px) {
-  .product-name,
-  .item-price {
-    font-size: 1.2rem;
-  }
-  .card-image img {
-    height: 150px;
-  }
+#buttons {
+  width: 60%;
 }
-@media screen and (max-width: 100px) {
-  .card-image img {
-    height: 150px;
-  }
-}
-@media screen and (min-width: 1300px) {
-  .card {
-    margin: 10px 10px;
-  }
-}
-@media screen and (max-width: 1190px) {
-  .product-name,
-  .item-price,
-  .cart-part {
-    font-size: 1.3rem;
-  }
-  #item-price {
-    width: 30%;
-  }
-  #buttons {
-    width: 60%;
-  }
-}
+
 .card {
-  background-color: #292f3b;
+  background-color: #3e3d42;
+  border-radius: 5%;
+  margin: 10px 10px;
 }
-.shopping_cart {
-  color: #cfcfcf;
-}
+
 #checkout-btn {
   font-size: 1.3rem;
   color: #333946;
   width: 30%;
+  background-color: orange;
+  color: #fff;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  width: 50%;
+  border: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  width: 50%;
+  border: none;
+  background-color: #393f4d;
+  color: #fff;
 }

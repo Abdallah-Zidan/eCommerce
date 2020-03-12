@@ -3,188 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/materialize.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/cart/cart.css" />
+    <link rel="stylesheet" href="./assets/css/fontawesome.min.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto|Roboto+Condensed&display=swap");
+    </style>
     <title>Document</title>
   </head>
   <body>
     <!-- navbar -->
     <div style="margin:15px">
       <div id="cards" class="row">
-        <!-- product template  -->
+        <!-- product template -->
         <script id="template-card" type="text/template">
-          <div class="card small " >
-            <div class="row">
-              <div class="card-image  col s4">
-                <a href=""><img src="{{productPicture}}" style="overflow:hidden;"/></a>
-              </div>
-              <div class="card-title col s8" style="margin: 15px 0;">
-                <span pid = "{{productId}}" class="product-name">{{productName}}</span>
-              </div>
-            </div>
-            <div class="row " style="margin-bottom: 0;">
-              <div id="buttons" class="col s5 m6">
-                <div class="row ">
-                  <div class="col s3  " style="margin-right: 13px;">
-                    <button id="addBtn"
-                     pid = "{{productId}}"
-                      class="btn-floating addBtn waves-effect waves-yellow  orange pulse"
-                    >
-                      <i class="material-icons">add</i>
-                    </button>
-                  </div>
-                  <div class="col s3 " style="margin-right: 13px;">
-                    <button
-                    id="removeBtn"
-                    pid = "{{productId}}"
-                      class="btn-floating removeBtn  waves-effect waves-yellow  red lighten-1"
-                    >
-                      <i class="material-icons">remove</i>
-                    </button>
-                  </div>
-                  <div class="col s3">
-                    <button
-                    id="deleteBtn"
-                    pid = "{{productId}}"
-                      class="btn-floating deleteBtn  waves-effect waves-yellow red lighten-1"
-                    >
-                      <i class="material-icons">delete</i>
-                    </button>
+          <div class="card  p-3 ">
+            <img
+              class="card-img-top"
+              style="margin:auto;border-radius:15%;"
+              src="{{productPicture}}"
+              alt="Card image cap"
+            />
+            <div class="card-body" style="text-align:center;">
+              <h5 pid="{{productId}}" class="card-title">{{productName}}</h5>
+              <div class="row justify-content-center">
+                <div id="buttons" class="col">
+                  <div class="row ">
+                    <div class="col">
+                      <button
+                        id="addBtn"
+                        pid="{{productId}}"
+                        class="btn-floating addBtn btn btn-primary"
+                        style="border-radius:30% ;background-color:orange;height:110%"
+                      >
+                        <i class="material-icons" style="vertical-align: middle;"
+                          >add</i
+                        >
+                      </button>
+                    </div>
+                    <div class="col">
+                      <button
+                        id="removeBtn"
+                        pid="{{productId}}"
+                        class="btn-floating removeBtn btn btn-primary"
+                        style="border-radius:30% ; height:110% "
+                      >
+                        <i class="material-icons" style="vertical-align: middle;"
+                          >remove</i
+                        >
+                      </button>
+                    </div>
+                    <div class="col">
+                      <button
+                        id="deleteBtn"
+                        pid="{{productId}}"
+                        class="btn-floating deleteBtn  btn btn-primary"
+                        style="border-radius:30% ;height:110%"
+                      >
+                        <i class="material-icons" style="vertical-align: middle;"
+                          >delete</i
+                        >
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div id="item-price" class="col s6 m5 ">
-                <div class="right-align">
-                  <span  pid = "{{productId}}" class="item-price">
+            </div>
+            <div class="container">
+              <div id="item-price" class="row " style="text-align:center;">
+                <div class="col col-sm-6">
+                  <span pid="{{productId}}" class="item-price">
                     {{productPrice}}
                   </span>
                   <span>{{productCurrencyCode}}</span>
                 </div>
-              </div>
-            </div>
-            <div class="row center-align valign-wrapper" style="margin-bottom: 0;">
-              <div id="counter" class="col s12 ">
-                <div class="row valign-wrapper cart-part">
-                  <div class="col s4 ">Items:</div>
-                  <div class="col s3"> <i style="font-size: 2rem;" class="material-icons prefix shopping_cart">shopping_cart</i></div>
-                  <div class="input-field col s5 inline ">
-                    <input
-                      class="center-align items-count"
-                      id="items-count"
-                      pid = "{{productId}}"
-                      qty = "{{productQuantity}}"
-                      type="number"
-                      min="1"
-                      max="{{productQuantity}}"
-                      value={{amount}}
-                    />
+                <div class="col col-sm-6">
+                  <div id="counter">
+                    <div class="cart-part">
+                      <div class="input-field">
+                        <input
+                          class="items-count"
+                          id="items-count"
+                          pid="{{productId}}"
+                          qty="{{productQuantity}}"
+                          type="number"
+                          min="1"
+                          max="{{productQuantity}}"
+                          value="{{amount}}"
+                          disabled="true"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </script>
-        <!-- product template  -->
-        <!-- card image
-        <div class="col s12 m6 l3">
-          <div class="card">
-            <div class="card-image">
-              <img src="./assets/images/filast.png" />
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="row " style="margin-bottom: 0;">
-              <div class="col s5 m6">
-                <div class="row ">
-                  <div class="col s3  " style="margin-right: 13px;">
-                    <button
-                      id="addBtn1"
-                      class="btn-floating  waves-effect waves-yellow blue pulse"
-                    >
-                      <i class="material-icons">add</i>
-                    </button>
-                  </div>
-
-                  <div class="col s3 " style="margin-right: 13px;">
-                    <button
-                      id="removeBtn1"
-                      class="btn-floating   waves-effect waves-yellow red "
-                    >
-                      <i class="material-icons">remove</i>
-                    </button>
-                  </div>
-                  <div class="col s3">
-                    <button
-                      id="deleteBtn1"
-                      class="btn-floating   waves-effect waves-yellow red"
-                    >
-                      <i class="material-icons">delete</i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col s6 m5 ">
-                <div class="right-align">
-                  <span class=" item-price ">
-                    10.55$
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="row center-align valign-wrapper"
-              style="margin-bottom: 0;"
-            >
-              <div id="counter" class="col s12 ">
-                <div class="row valign-wrapper">
-                  <div class="col s4 ">Items:</div>
-                  <div class="col s3">
-                    <i
-                      style="font-size: 2rem;"
-                      class="material-icons prefix blue-text"
-                      >shopping_cart</i
-                    >
-                  </div>
-
-                  <div class="input-field col s5 inline ">
-                    <input
-                      class="center-align items-count"
-                      id="items-count1"
-                      type="number"
-                      min="1"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
-    <div class="chekout center">
-      <div class="total-price " style="margin:20px;">
+    <div class="chekout " style="text-align: center;">
+      <div class="total-price " style="margin:20px; color:black">
         <span>Total : </span>
         <span id="total-price-value">0</span>
         EUR
       </div>
       <div class="btn-total col s6" style="margin:20px;">
-        <button
-          id="checkout-btn"
-          class=" btn-large orange waves-effect waves-yellow  "
-        >
+        <button id="checkout-btn" class=" btn btn-large ">
           checkout
         </button>
       </div>
     </div>
 
     <script src="./assets/js/jquery-3.4.1.min.js"></script>
-    <script src="./assets/js/materialize.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/cart/dexie.js"></script>
-    <script src="./assets/js/cart/database.js"></script>
-    <script src="./assets/js/cart/localstorage.js"></script>
+    <script src="./assets/js/cart/common.js"></script>
     <script src="./assets/js/cart/cart-page.js"></script>
 
     <!-- footer -->

@@ -4,17 +4,6 @@ const url = window.location.href.split("=");
 const id = Number(url[1]);
 const db = createDB();
 
-function fillTemplate(templateHml, data) {
-  Object.keys(data).forEach(function(key) {
-    let placeHolder = "{{" + key + "}}";
-    let val = data[key];
-    while (templateHml.indexOf(placeHolder) !== -1) {
-      templateHml = templateHml.replace(placeHolder, val);
-    }
-  });
-  return templateHml;
-}
-
 function createDetails(details) {
   order = {
     id: details.id,
