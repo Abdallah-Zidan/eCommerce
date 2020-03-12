@@ -1,0 +1,56 @@
+body {
+  background-color: #c3c9c9;
+  color: #fff;
+
+  font-family: "Roboto", sans-serif;
+}
+.items-count {
+  width: 70%;
+  text-align: center;
+}
+.item-price {
+  font-size: 1.3rem;
+}
+
+#counter {
+  font-size: 1.3rem;
+}
+
+#counter .input-field .items-count,
+.total-price {
+  font-size: 1.3rem;
+}
+
+#buttons {
+  width: 60%;
+}
+
+.card {
+  background-color: #3e3d42;
+  border-radius: 5%;
+  margin: 10px 10px;
+}
+
+#checkout-btn {
+  font-size: 1.3rem;
+  color: #333946;
+  width: 30%;
+  background-color: orange;
+  color: #fff;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  width: 50%;
+  border: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  width: 50%;
+  border: none;
+  background-color: #393f4d;
+  color: #fff;
+}
