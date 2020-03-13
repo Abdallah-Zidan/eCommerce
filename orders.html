@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/cart/orders.css" />
+    <title>Orders history</title>
+  </head>
+  <body>
+    <div class="container-fluid justify-content-sm-center">
+      <div id="title" class="row justify-content-sm-center p-3 ">
+        <div class="jubmutron ">
+          Orders History
+        </div>
+      </div>
+    </div>
+    <table class="table text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">date</th>
+          <th scope="col">time</th>
+          <th scope="col">total price</th>
+          <th scope="col">details</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody id="data-table">
+        <script id="template-row" type="text/template">
+          <th scope="row"  >{{id}}</th>
+          <td>{{date}}</td>
+          <td>{{time}}</td>
+          <td>{{total}} <span class="mx-2">EUR</span></td>
+          <td> <a class="btn btn-info" oid={{id}}  href="./orderdetails.html?id={{id}}">info</a> </td>
+          <td><button class="btn btn-warning delBtn" onclick="deleteOrder({{id}} )">del</button></td>
+        </script>
+      </tbody>
+    </table>
+    <script src="./assets/js/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/cart/dexie.js"></script>
+    <script src="./assets/js/cart/common.js"></script>
+    <script src="./assets/js/cart/orders.js"></script>
+  </body>
+</html>
