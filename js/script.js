@@ -37,8 +37,8 @@ function getProducts(page){
             </div>`
 
                 document.getElementById("postPlace").innerHTML =output;
-            console.log("category: "+product.Category);
-            // console.log(product.SupplierName);
+            // console.log("category: "+product.Category);
+            console.log(product.SupplierName);
             
             
         });
@@ -69,7 +69,7 @@ window.onload = function() {
 
 
 
-///////////filter by category
+///////////filter by category only
 
 function filterByCat(category){
     fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/products/?category='+category)
@@ -114,11 +114,66 @@ function filterByCat(category){
     
 }
 
-
-$("input[type='checkbox']").change(function() {
+$("input.cat").change(function() {
     
     if($(this).is (':checked')) {
+        
         filterByCat($(this).attr("name"));
+    }
+    clearChecks();
+    $(this).prop('checked', true);
+});
+
+
+///////////////////////////////////filter by supplier
+function filterBySup(sup){
+    fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/products/?supplier='+sup)
+    .then((res)=>res.json())
+    .then((data)=>{
+        let output=""
+        data.data.forEach(product => {
+            output +=`
+            <div class="col-md-4">
+            <div class="single-product-wrapper">
+                <!-- Product Image -->
+                <div class="product-img ">
+                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg">
+                </div>
+
+                <!-- Product Description -->
+                <div class="product-description d-flex align-items-center justify-content-between">
+                    <!-- Product Meta Data -->
+                    <div class="product-meta-data">
+                        <div class="line"></div>
+                        <p class="product-price">${product.CurrencyCode} ${product.Price}</p>
+                            <h6>${product.Name}</h6>
+                        
+                    </div>
+                    <!-- Cart -->
+                    <div class="ratings-cart text-right">
+                        <div class="cart">
+                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>`
+
+                document.getElementById("postPlace").innerHTML =output;
+        });
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+
+    
+}
+
+$("input.sup").change(function() {
+    
+    if($(this).is (':checked')) {
+        
+        filterBySup($(this).attr("name"));
     }
     clearChecks();
     $(this).prop('checked', true);
