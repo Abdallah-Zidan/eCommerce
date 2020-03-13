@@ -14,7 +14,7 @@ function getProducts(page){
             <div class="single-product-wrapper">
                 <!-- Product Image -->
                 <div class="product-img ">
-                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg">
+                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg" onClick="getRequest('${product.ProductId}')">
                 </div>
 
                 <!-- Product Description -->
@@ -29,7 +29,7 @@ function getProducts(page){
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
+                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
