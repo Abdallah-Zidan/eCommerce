@@ -58,12 +58,6 @@ body {
   background-color: #252525;
 }
 
-.navbar-brand {
-  color: #fff56a;
-  font-size: 27px;
-  display: contents;
-}
-
 header a {
   color: #fff;
   font-size: large;
@@ -74,7 +68,13 @@ header a:hover {
   color: #fff56a;
   font-size: large;
 }
-
+.navbar-brand,
+.navbar-brand a,
+.navbar-brand a:hover {
+  color: #fff56a;
+  font-size: 27px;
+  display: contents;
+}
 .footer_area {
   position: relative;
   z-index: 1;
