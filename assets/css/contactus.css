@@ -1,6 +1,12 @@
-/* TODO : to be removed */
+html {
+    height: 100%;
+}
+
 body {
     background-color: #f1f1f1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .contactus-title {
@@ -84,4 +90,13 @@ header a:hover {
 
 footer .container {
     text-align: center;
+}
+
+.container {
+    flex: 1 0 auto;
+    margin-top: 40px;
+}
+
+footer {
+    flex-shrink: 0;
 }
