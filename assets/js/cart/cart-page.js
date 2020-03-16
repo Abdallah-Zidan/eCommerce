@@ -123,6 +123,7 @@ checkoutBtn.addEventListener("click", e => {
       amount: data.noOfItems,
       price: data.price
     });
+    removeCard(data.pid);
   });
   let orderPrice = calculateTotal();
   let date = new Date();
@@ -142,4 +143,11 @@ function getProductData(product) {
     price: price,
     name: name
   };
+}
+function removeCard(pid) {
+  let card = $(`.card[pid=${pid}]`);
+  card.fadeOut(600, function() {
+    $(this).remove();
+    calculateTotal();
+  });
 }
