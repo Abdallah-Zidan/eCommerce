@@ -113,23 +113,25 @@ function calculateTotal() {
   return total;
 }
 checkoutBtn.addEventListener("click", e => {
-  let products = document.querySelectorAll(".item-price");
-  let productsArr = [];
-  products.forEach(product => {
-    let data = getProductData(product);
-    productsArr.push({
-      id: data.pid,
-      name: data.name,
-      amount: data.noOfItems,
-      price: data.price
+  if (calculateTotal() > 0) {
+    let products = document.querySelectorAll(".item-price");
+    let productsArr = [];
+    products.forEach(product => {
+      let data = getProductData(product);
+      productsArr.push({
+        id: data.pid,
+        name: data.name,
+        amount: data.noOfItems,
+        price: data.price
+      });
+      removeCard(data.pid);
     });
-    removeCard(data.pid);
-  });
-  let orderPrice = calculateTotal();
-  let date = new Date();
-  let order = { products: productsArr, date: date, total: orderPrice };
-  insertData(db.orders, order);
-  clearLocalStorage();
+    let orderPrice = calculateTotal();
+    let date = new Date();
+    let order = { products: productsArr, date: date, total: orderPrice };
+    insertData(db.orders, order);
+    clearLocalStorage();
+  }
 });
 
 function getProductData(product) {
