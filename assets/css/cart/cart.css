@@ -1,8 +1,20 @@
+html,
+body {
+  height: 100%;
+}
 body {
   background-color: #c3c9c9;
   color: #fff;
   /* text-align: center; */
   font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.footer_area {
+  flex-shrink: 0;
+}
+.Basic-container {
+  flex: 1 0 auto;
 }
 .items-count {
   width: 70%;
@@ -11,7 +23,9 @@ body {
 .item-price {
   font-size: 1.3rem;
 }
-
+.product-name {
+  color: #fff;
+}
 #counter {
   font-size: 1.3rem;
 }
@@ -109,10 +123,10 @@ footer .container {
   background-color: #f3d076;
 }
 
-.Basic-container{
+.Basic-container {
   padding: 0 3rem;
 }
 
-footer .container{
+footer .container {
   text-align: center;
 }

@@ -21,13 +21,13 @@
 
     <!-- Favicon  -->
 
-    <title>Document</title>
+    <title>Cart</title>
   </head>
   <body>
     <!-- navbar -->
     <header class="justify-content-start">
       <nav class="navbar navbar-expand-lg ">
-        <p class="navbar-brand">OS Electronics</p>
+        <p class="navbar-brand">OS40 Electronics</p>
         <button
           class="navbar-toggler amado-navbar-toggler"
           type="button"
@@ -65,99 +65,98 @@
     </header>
     <!-- end of navbar -->
     <div class="Basic-container">
-
       <div id="main-div" style="margin:15px">
-          <div id="cards" class="row">
-            <!-- product template -->
-            <script id="template-card" type="text/template">
-              <div pid={{productId}} class="card  p-3 ">
-                <img
-                  class="card-img-top"
-                  style="margin:auto;border-radius:15%;"
-                  src="{{productPicture}}"
-                  alt="Card image cap"
-                />
-                <div class="card-body" style="text-align:center;">
-                  <h5 pid="{{productId}}" class="card-title product-name">{{productName}}</h5>
-                  <div class="row justify-content-center">
-                    <div id="buttons" class="col">
-                      <div class="row ">
-                        <div class="col">
-                          <button
-                            id="addBtn"
-                            pid="{{productId}}"
-                            class="btn-floating addBtn btn btn-warning"
-                            style="border-radius:30% ;background-color:orange;height:110%"
+        <div id="cards" class="row">
+          <!-- product template -->
+          <script id="template-card" type="text/template">
+            <div pid={{productId}} class="card  p-3 ">
+              <img
+                class="card-img-top"
+                style="margin:auto;border-radius:15%;"
+                src="{{productPicture}}"
+                alt="Card image cap"
+              />
+              <div class="card-body" style="text-align:center;">
+                <h5 pid="{{productId}}" class="card-title product-name">{{productName}}</h5>
+                <div class="row justify-content-center">
+                  <div id="buttons" class="col">
+                    <div class="row ">
+                      <div class="col">
+                        <button
+                          id="addBtn"
+                          pid="{{productId}}"
+                          class="btn-floating addBtn btn btn-warning"
+                          style="border-radius:30% ;height:110%"
+                        >
+                          <i class="material-icons" style="vertical-align: middle;"
+                            >add</i
                           >
-                            <i class="material-icons" style="vertical-align: middle;"
-                              >add</i
-                            >
-                          </button>
-                        </div>
-                        <div class="col">
-                          <button
-                            id="removeBtn"
-                            pid="{{productId}}"
-                            class="btn-floating removeBtn btn btn-warning"
-                            style="border-radius:30% ; height:110% "
+                        </button>
+                      </div>
+                      <div class="col">
+                        <button
+                          id="removeBtn"
+                          pid="{{productId}}"
+                          class="btn-floating removeBtn btn btn-warning"
+                          style="border-radius:30% ; height:110% "
+                        >
+                          <i class="material-icons" style="vertical-align: middle;"
+                            >remove</i
                           >
-                            <i class="material-icons" style="vertical-align: middle;"
-                              >remove</i
-                            >
-                          </button>
-                        </div>
-                        <div class="col">
-                          <button
-                            id="deleteBtn"
-                            pid="{{productId}}"
-                            class="btn-floating deleteBtn  btn btn-warning"
-                            style="border-radius:30% ;height:110%"
+                        </button>
+                      </div>
+                      <div class="col">
+                        <button
+                          id="deleteBtn"
+                          pid="{{productId}}"
+                          class="btn-floating deleteBtn  btn btn-warning"
+                          style="border-radius:30% ;height:110%"
+                        >
+                          <i class="material-icons" style="vertical-align: middle;"
+                            >delete</i
                           >
-                            <i class="material-icons" style="vertical-align: middle;"
-                              >delete</i
-                            >
-                          </button>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="container">
-                  <div id="item-price" class="row " style="text-align:center;">
-                    <div class="col col-sm-6">
-                      <div class="line"></div>
-                      <span pid="{{productId}}" class="item-price">
-                        {{productPrice}}
-                      </span>
-                      <span>{{productCurrencyCode}}</span>
-                    </div>
-                    <div class="col col-sm-6">
-                      <div id="counter">
-                        <div class="cart-part">
-                          <div class="input-field">
-                            <input
-                              class="items-count"
-                              id="items-count"
-                              pid="{{productId}}"
-                              qty="{{productQuantity}}"
-                              type="number"
-                              min="1"
-                              max="{{productQuantity}}"
-                              value="{{amount}}"
-                              disabled="true"
-                            />
-                          </div>
+              </div>
+              <div class="container">
+                <div id="item-price" class="row " style="text-align:center;">
+                  <div class="col col-sm-6">
+                    <div class="line"></div>
+                    <span pid="{{productId}}" class="item-price">
+                      {{productPrice}}
+                    </span>
+                    <span>{{productCurrencyCode}}</span>
+                  </div>
+                  <div class="col col-sm-6">
+                    <div id="counter">
+                      <div class="cart-part">
+                        <div class="input-field">
+                          <input
+                            class="items-count"
+                            id="items-count"
+                            pid="{{productId}}"
+                            qty="{{productQuantity}}"
+                            type="number"
+                            min="1"
+                            max="{{productQuantity}}"
+                            value="{{amount}}"
+                            disabled="true"
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </script>
-          </div>
+            </div>
+          </script>
         </div>
+      </div>
     </div>
-        
+
     <div class="chekout " style="text-align: center;">
       <div class="total-price " style="margin:20px; color:black">
         <span>Total : </span>
@@ -170,11 +169,11 @@
         </button>
       </div>
     </div>
-<footer class="footer_area clearfix">
-  <div class="container">
-    <p>All rights reserved NAFE&copy;</p>
-  </div>
-</footer>
+    <footer class="footer_area clearfix">
+      <div class="container">
+        <p>All rights reserved OS40 &copy; 2020</p>
+      </div>
+    </footer>
     <script src="./assets/js/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/cart/dexie.js"></script>
@@ -182,6 +181,5 @@
     <script src="./assets/js/cart/cart-page.js"></script>
 
     <!-- footer -->
-
   </body>
 </html>
