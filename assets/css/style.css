@@ -44,6 +44,7 @@ h2 .btn-link:hover{
 .navbar-brand{
     color: #fff56a;
     font-size: 27px;
+    display: contents;
     
 }
 
@@ -95,4 +96,108 @@ footer .container{
 
 .navbar-collapse{
     text-align: left;
+}
+
+
+
+.search
+{
+	width: 100%;
+	height: 45px;
+	background: transparent;
+	padding-left: 45px;
+	padding-right: 43px;
+	margin-top: 58px;
+}
+.search_form
+{
+	display: block;
+	position: relative;
+}
+.search_input
+{
+	width: 100%;
+	height: 45px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: solid 1px #cacaca;
+	color: black;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.search_input:focus,
+.search_input:hover
+{
+	border-bottom: solid 1px #fbb710;
+}
+.search_button
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 26px;
+	height: 45px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: black;
+	cursor: pointer;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.search_button:hover
+{
+	color: #e4c932;
+}
+.search_button:active
+{
+	border: none;
+	outline: none;
+}
+.search_input::-webkit-input-placeholder
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #4d4b4b !important;
+}
+.search_input:-moz-placeholder
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #7f7d7d !important;
+}
+.search_input::-moz-placeholder
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #7f7d7d !important;
+} 
+.search_input:-ms-input-placeholder
+{ 
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #7f7d7d !important;
+}
+.search_input::input-placeholder
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #7f7d7d !important;
 }
