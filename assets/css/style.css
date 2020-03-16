@@ -47,3 +47,25 @@ body {
 #contactUsForm input {
     padding: 0 35px;
 }
+
+.justify-content-start {
+    background-color: #252525;
+}
+
+.navbar-brand {
+    color: #fff56a;
+    font-size: 27px;
+    display: contents;
+    font-weight: bold;
+}
+
+header a {
+    color: #fff;
+    font-size: large;
+    font-weight: 400;
+}
+
+header a:hover {
+    color: #fff56a;
+    font-size: large;
+}
