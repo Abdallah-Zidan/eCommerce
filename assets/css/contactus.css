@@ -69,3 +69,19 @@ header a:hover {
     color: #fff56a;
     font-size: large;
 }
+
+.footer_area {
+    position: relative;
+    z-index: 1;
+    background-color: #252525;
+    padding: 80px 0;
+    display: block;
+    color: #6d6d6d;
+    font-size: 16px;
+    line-height: 1.9;
+    font-weight: 400;
+}
+
+footer .container {
+    text-align: center;
+}
