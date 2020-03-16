@@ -32,7 +32,7 @@ function getProducts(page) {
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                            <a  onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -49,18 +49,37 @@ function getProducts(page) {
     });
 }
 
-function nextPage() {
-  currentPage += 1;
+function getFirstPage() {
+  currentPage = firstPage;
   getProducts(currentPage);
 }
+
+function getLastPage() {
+  currentPage = lastPage;
+  getProducts(currentPage);
+}
+
+function nextPage() {
+  if (currentPage < lastPage) {
+    currentPage += 1;
+  } else {
+    currentPage = firstPage;
+  }
+  getProducts(currentPage);
+}
+
 function previousPage() {
-  currentPage -= 1;
+  if (currentPage > firstPage) {
+    currentPage -= 1;
+  } else {
+    currentPage = lastPage;
+  }
   getProducts(currentPage);
 }
 
 window.onload = function() {
   clearChecks();
-  getProducts(1);
+  getProducts(firstPage);
 };
 
 ///////////filter by category only
@@ -78,8 +97,9 @@ function filterByCat(category) {
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
-                <div class="product-img ">
-                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg">
+                <div class="product-img" pid="${product.ProductId}" data-target="#exampleModalCenteredScrollable"
+                data-toggle="modal" class="btn btn-show">
+                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg" onClick="getRequest('${product.ProductId}')">
                 </div>
 
                 <!-- Product Description -->
@@ -87,14 +107,14 @@ function filterByCat(category) {
                     <!-- Product Meta Data -->
                     <div class="product-meta-data">
                         <div class="line"></div>
-                        <p class="product-price">${product.CurrencyCode} ${product.Price}</p>
+                        <p class="product-price"> ${product.Price} <span style="font-size:17px;">${product.CurrencyCode}<span></p>
                             <h6>${product.Name}</h6>
                         
                     </div>
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a style="cursor: pointer;" onclick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
+                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -131,8 +151,9 @@ function filterBySup(sup) {
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
-                <div class="product-img ">
-                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg">
+                <div class="product-img" pid="${product.ProductId}" data-target="#exampleModalCenteredScrollable"
+                data-toggle="modal" class="btn btn-show">
+                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg" onClick="getRequest('${product.ProductId}')">
                 </div>
 
                 <!-- Product Description -->
@@ -140,14 +161,14 @@ function filterBySup(sup) {
                     <!-- Product Meta Data -->
                     <div class="product-meta-data">
                         <div class="line"></div>
-                        <p class="product-price">${product.CurrencyCode} ${product.Price}</p>
+                        <p class="product-price"> ${product.Price} <span style="font-size:17px;">${product.CurrencyCode}<span></p>
                             <h6>${product.Name}</h6>
                         
                     </div>
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
+                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -179,8 +200,17 @@ function clearChecks() {
 }
 
 //////////////////////////////////Search
+
+$("#searchBtn").click(() => {
+  Search();
+});
+
 function Search() {
   let text = $("#textSearch")[0].value;
+  console.log(text);
+  console.log(
+    "https://afternoon-falls-30227.herokuapp.com/api/v1/products/?q=" + text
+  );
   fetch(
     "https://afternoon-falls-30227.herokuapp.com/api/v1/products/?q=" + text
   )
@@ -192,8 +222,9 @@ function Search() {
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
-                <div class="product-img ">
-                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg">
+                <div class="product-img" pid="${product.ProductId}" data-target="#exampleModalCenteredScrollable"
+                data-toggle="modal" class="btn btn-show">
+                    <img class="img-fluid" src="${product.ProductPicUrl}" alt="" id="productImg" onClick="getRequest('${product.ProductId}')">
                 </div>
 
                 <!-- Product Description -->
@@ -201,23 +232,25 @@ function Search() {
                     <!-- Product Meta Data -->
                     <div class="product-meta-data">
                         <div class="line"></div>
-                        <p class="product-price">${product.CurrencyCode} ${product.Price}</p>
+                        <p class="product-price"> ${product.Price} <span style="font-size:17px;">${product.CurrencyCode}<span></p>
                             <h6>${product.Name}</h6>
                         
                     </div>
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
-                    <div class="cart">
-                    <button style="cursor: pointer;" onclick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></button>
-                        
+                        <div class="cart">
+                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                        </div>
                     </div>
                 </div>
                 </div>
             </div>
             </div>`;
-        $("#textSearch")[0].value = "";
+
         document.getElementById("postPlace").innerHTML = output;
       });
+      console.log($("#textSearch")[0]);
+      $("#textSearch")[0].value = "";
     })
     .catch(err => {
       console.log(err);
