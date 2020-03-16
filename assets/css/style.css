@@ -9,7 +9,7 @@ body {
 
 #contactUsForm {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 20px auto 100px auto;
 }
 
 #contactUsForm .form-group {
