@@ -50,22 +50,40 @@ function getProducts(page) {
         });
 }
 
-
-
-function nextPage() {
-    currentPage += 1;
+function getFirstPage(){
+    currentPage = firstPage;
     getProducts(currentPage);
 }
 
-function previousPage() {
-    currentPage -= 1;
+function getLastPage(){
+    currentPage = lastPage;
     getProducts(currentPage);
+}
+
+function nextPage() {
+   if(currentPage < lastPage){
+    currentPage += 1;  
+   }
+   else{
+       currentPage = firstPage;
+   }
+   getProducts(currentPage);
+}
+
+function previousPage() {
+    if(currentPage > firstPage){
+        currentPage -= 1;  
+       }
+    else{
+           currentPage = lastPage;
+    }
+       getProducts(currentPage);
 }
 
 
 window.onload = function () {
     clearChecks();
-    getProducts(1);
+    getProducts(firstPage);
 };
 
 
