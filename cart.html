@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="icon" href="img/core-img/favicon.ico" />
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="css/core-style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./assets/css/cart/cart.css" />
     <link rel="stylesheet" href="./assets/css/fontawesome.min.css" />
     <link
@@ -13,11 +18,54 @@
     <style>
       @import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto|Roboto+Condensed&display=swap");
     </style>
+
+    <!-- Favicon  -->
+
     <title>Document</title>
   </head>
   <body>
     <!-- navbar -->
-    <div style="margin:15px">
+    <header class="justify-content-start">
+      <nav class="navbar navbar-expand-lg ">
+        <p class="navbar-brand">OS Electronics</p>
+        <button
+          class="navbar-toggler amado-navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#NavContent"
+          aria-controls="NavContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="NavContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a href="cart.html" class="nav-link" data-placement="left"
+                ><img src="assets/images/bag.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- end of navbar -->
+
+    <div id="main-div" style="margin:15px">
       <div id="cards" class="row">
         <!-- product template -->
         <script id="template-card" type="text/template">
@@ -29,7 +77,7 @@
               alt="Card image cap"
             />
             <div class="card-body" style="text-align:center;">
-              <h5 pid="{{productId}}" class="card-title">{{productName}}</h5>
+              <h5 pid="{{productId}}" class="card-title product-name">{{productName}}</h5>
               <div class="row justify-content-center">
                 <div id="buttons" class="col">
                   <div class="row ">
@@ -76,6 +124,7 @@
             <div class="container">
               <div id="item-price" class="row " style="text-align:center;">
                 <div class="col col-sm-6">
+                  <div class="line"></div>
                   <span pid="{{productId}}" class="item-price">
                     {{productPrice}}
                   </span>

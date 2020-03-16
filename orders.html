@@ -4,10 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="icon" href="img/core-img/favicon.ico" />
+
+
+    <link rel="stylesheet" href="css/core-style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./assets/css/cart/orders.css" />
     <title>Orders history</title>
   </head>
   <body>
+    <header class="justify-content-start">
+      <nav class="navbar navbar-expand-lg ">
+        <p class="navbar-brand">OS Electronics</p>
+        <button
+          class="navbar-toggler amado-navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#NavContent"
+          aria-controls="NavContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="NavContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a href="cart.html" class="nav-link" data-placement="left"
+                ><img src="assets/images/bag.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- end of navbar -->
+
     <div class="container-fluid justify-content-sm-center">
       <div id="title" class="row justify-content-sm-center p-3 ">
         <div class="jubmutron ">
@@ -32,11 +77,68 @@
           <td>{{date}}</td>
           <td>{{time}}</td>
           <td>{{total}} <span class="mx-2">EUR</span></td>
-          <td> <a class="btn btn-info" oid={{id}}  href="./orderdetails.html?id={{id}}">info</a> </td>
+          <td> <button class="btn btn-info"  data-toggle="modal"
+            data-target="#modalCart" oid={{id}}  onclick="getDetails({{id}})">info</button> </td>
           <td><button class="btn btn-warning delBtn" onclick="deleteOrder({{id}} )">del</button></td>
         </script>
       </tbody>
     </table>
+
+  <!-- cart modal -->
+      <div
+        class="modal fade"
+        id="modalCart"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Order Details</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Product Name</th>
+                    <th>Price/piece</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-details">
+                 
+                </tbody>
+              </table>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-dismiss="modal"
+              >
+                Close
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Modal: order info -->
+
     <script src="./assets/js/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/cart/dexie.js"></script>

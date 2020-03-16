@@ -61,7 +61,8 @@ function deleteItemFromLocalStorage(pid) {
  * @param quantity : prodcut available quantity from  the api in order to prevent adding to cart
  * more than the available items
  */
-function addItemToLocalStorage(pid, quantity) {
+function addItemToLocalStorage(e, pid, quantity) {
+  e.preventDEfault();
   let products = getDataFromLocalStorage();
   let item = { id: pid, amount: 1, qty: quantity };
   if (products) {

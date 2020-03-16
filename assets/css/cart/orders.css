@@ -18,3 +18,56 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background: rgb(241, 239, 239);
 }
+header {
+  background-color: #252525;
+  z-index: 9999999999;
+}
+li a {
+  font-size: large;
+  padding: 1rem;
+  margin: 0 10px;
+}
+
+header a {
+  color: #fff;
+  font-size: large;
+}
+
+header a:hover {
+  color: #fff56a;
+  font-size: large;
+}
+.navbar-brand {
+  color: #fff56a;
+  font-size: 27px;
+  display: contents;
+}
+footer .container {
+  text-align: center;
+}
+
+.navbar-brand:hover {
+  font-size: 27px;
+  color: #fff;
+}
+
+/* .amado-navbar-toggler{
+  float: right;
+} */
+
+.navbar {
+  display: flex;
+}
+
+.navbar-collapse {
+  text-align: left;
+}
+.cart {
+  background-color: #fbb710;
+  padding: 5px 15px;
+  border-radius: 2px;
+  margin-right: 2rem;
+}
+.cart:hover {
+  background-color: #f3d076;
+}

@@ -30,3 +30,31 @@ function deleteOrder(orderId) {
       });
     });
 }
+
+function createDetails(details) {
+  const tbody = document.querySelector("#tbody-details");
+  let html = "";
+  let products = details.products;
+  products.forEach(product => {
+    html += ` <tr>
+    <th scope="row">${product.id}</th>
+    <td>${product.name}</td>
+    <td>${product.amount}</td>
+    <td>${product.price}</td>
+    </tr>`;
+  });
+  html += ` <tr class="total">
+    <th scope="row">#</th>
+    <td>Total</td>
+    <td colspan="2">${details.total}</td>
+    </tr>`;
+  tbody.innerHTML = html;
+}
+
+async function getDetails(id) {
+  const details = await db.orders
+    .where("id")
+    .equals(id)
+    .first();
+  createDetails(details);
+}

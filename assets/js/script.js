@@ -3,13 +3,15 @@ let lastPage = 13;
 let currentPage = 1;
 
 ///////////////// fetch data from api
-function getProducts(page){
-    fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/products/?page='+page)
-    .then((res)=>res.json())
-    .then((data)=>{
-        let output=""
-        data.data.forEach(product => {
-            output +=`
+function getProducts(page) {
+  fetch(
+    "https://afternoon-falls-30227.herokuapp.com/api/v1/products/?page=" + page
+  )
+    .then(res => res.json())
+    .then(data => {
+      let output = "";
+      data.data.forEach(product => {
+        output += `
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
@@ -35,50 +37,44 @@ function getProducts(page){
                     </div>
                 </div>
             </div>
-            </div>`
+            </div>`;
 
-                document.getElementById("postPlace").innerHTML =output;
-            // console.log("category: "+product.Category);
-            // console.log(product.SupplierName);
-            
-            
-        });
-
+        document.getElementById("postPlace").innerHTML = output;
+        // console.log("category: "+product.Category);
+        // console.log(product.SupplierName);
+      });
     })
-    .catch((err)=>{
-        console.log(err);
+    .catch(err => {
+      console.log(err);
     });
 }
 
-
-
 function nextPage() {
-    currentPage += 1;
-    getProducts(currentPage);
+  currentPage += 1;
+  getProducts(currentPage);
 }
 function previousPage() {
-    currentPage -= 1;
-    getProducts(currentPage);
+  currentPage -= 1;
+  getProducts(currentPage);
 }
 
-
 window.onload = function() {
-    clearChecks();
-    getProducts(1);
-  };
-
-
-
+  clearChecks();
+  getProducts(1);
+};
 
 ///////////filter by category only
 
-function filterByCat(category){
-    fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/products/?category='+category)
-    .then((res)=>res.json())
-    .then((data)=>{
-        let output=""
-        data.data.forEach(product => {
-            output +=`
+function filterByCat(category) {
+  fetch(
+    "https://afternoon-falls-30227.herokuapp.com/api/v1/products/?category=" +
+      category
+  )
+    .then(res => res.json())
+    .then(data => {
+      let output = "";
+      data.data.forEach(product => {
+        output += `
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
@@ -98,42 +94,40 @@ function filterByCat(category){
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
+                            <a style="cursor: pointer;" onclick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>`
+            </div>`;
 
-                document.getElementById("postPlace").innerHTML =output;
-        });
+        document.getElementById("postPlace").innerHTML = output;
+      });
     })
-    .catch((err)=>{
-        console.log(err);
+    .catch(err => {
+      console.log(err);
     });
-
-    
 }
 
 $("input.cat").change(function() {
-    
-    if($(this).is (':checked')) {
-        
-        filterByCat($(this).attr("name"));
-    }
-    clearChecks();
-    $(this).prop('checked', true);
+  if ($(this).is(":checked")) {
+    filterByCat($(this).attr("name"));
+  }
+  clearChecks();
+  $(this).prop("checked", true);
 });
 
-
 ///////////////////////////////////filter by supplier
-function filterBySup(sup){
-    fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/products/?supplier='+sup)
-    .then((res)=>res.json())
-    .then((data)=>{
-        let output=""
-        data.data.forEach(product => {
-            output +=`
+function filterBySup(sup) {
+  fetch(
+    "https://afternoon-falls-30227.herokuapp.com/api/v1/products/?supplier=" +
+      sup
+  )
+    .then(res => res.json())
+    .then(data => {
+      let output = "";
+      data.data.forEach(product => {
+        output += `
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
@@ -158,49 +152,43 @@ function filterBySup(sup){
                     </div>
                 </div>
             </div>
-            </div>`
+            </div>`;
 
-                document.getElementById("postPlace").innerHTML =output;
-        });
+        document.getElementById("postPlace").innerHTML = output;
+      });
     })
-    .catch((err)=>{
-        console.log(err);
+    .catch(err => {
+      console.log(err);
     });
-
-    
 }
 
 $("input.sup").change(function() {
-    
-    if($(this).is (':checked')) {
-        
-        filterBySup($(this).attr("name"));
-    }
-    clearChecks();
-    $(this).prop('checked', true);
+  if ($(this).is(":checked")) {
+    filterBySup($(this).attr("name"));
+  }
+  clearChecks();
+  $(this).prop("checked", true);
 });
 
-
-
 /////////////////////////clear checks
-function clearChecks(){
-    if($("input[type='checkbox']").is(':checked'))
-    {   console.log("enterd if")
-        $("input[type='checkbox']").prop('checked', false);
-        
-     }
+function clearChecks() {
+  if ($("input[type='checkbox']").is(":checked")) {
+    console.log("enterd if");
+    $("input[type='checkbox']").prop("checked", false);
+  }
 }
 
-
-//////////////////////////////////Search 
-function Search(){
-    let text = $("#textSearch")[0].value;
-    fetch('https://afternoon-falls-30227.herokuapp.com/api/v1/products/?q='+text)
-    .then((res)=>res.json())
-    .then((data)=>{
-        let output=""
-        data.data.forEach(product => {
-            output +=`
+//////////////////////////////////Search
+function Search() {
+  let text = $("#textSearch")[0].value;
+  fetch(
+    "https://afternoon-falls-30227.herokuapp.com/api/v1/products/?q=" + text
+  )
+    .then(res => res.json())
+    .then(data => {
+      let output = "";
+      data.data.forEach(product => {
+        output += `
             <div class="col-md-4">
             <div class="single-product-wrapper">
                 <!-- Product Image -->
@@ -219,19 +207,19 @@ function Search(){
                     </div>
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
-                        <div class="cart">
-                            <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></a>
-                        </div>
+                    <div class="cart">
+                    <button style="cursor: pointer;" onclick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/bag.png" alt=""></button>
+                        
                     </div>
                 </div>
+                </div>
             </div>
-            </div>`
-            $("#textSearch")[0].value="";
-                document.getElementById("postPlace").innerHTML =output;
-        });
+            </div>`;
+        $("#textSearch")[0].value = "";
+        document.getElementById("postPlace").innerHTML = output;
+      });
     })
-    .catch((err)=>{
-        console.log(err);
+    .catch(err => {
+      console.log(err);
     });
-    
 }

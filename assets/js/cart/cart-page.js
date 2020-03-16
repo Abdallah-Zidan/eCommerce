@@ -118,6 +118,7 @@ checkoutBtn.addEventListener("click", e => {
   products.forEach(product => {
     let data = getProductData(product);
     productsArr.push({
+      id: data.pid,
       name: data.name,
       amount: data.noOfItems,
       price: data.price
@@ -142,7 +143,3 @@ function getProductData(product) {
     name: name
   };
 }
-
-addItemToLocalStorage("HT-1003", 15);
-addItemToLocalStorage("HT-1001", 10);
-addItemToLocalStorage("HT-1002", 15);
