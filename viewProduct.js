@@ -1,5 +1,5 @@
 const req = new XMLHttpRequest();
-let btns = document.querySelectorAll(".btn-show");
+let btns = document.querySelectorAll("#product-img");
 
 let img_div = document.querySelector("#prod_img");
 let prod_name = document.querySelector(".prod_name");
