@@ -1,7 +1,7 @@
 body {
   background-color: #c3c9c9;
   color: #fff;
-
+  /* text-align: center; */
   font-family: "Roboto", sans-serif;
 }
 .items-count {
@@ -29,6 +29,7 @@ body {
   background-color: #3e3d42;
   border-radius: 5%;
   margin: 10px 10px;
+  width: 95%;
 }
 
 #checkout-btn {
@@ -106,4 +107,12 @@ footer .container {
 }
 .cart:hover {
   background-color: #f3d076;
+}
+
+.Basic-container{
+  padding: 0 3rem;
+}
+
+footer .container{
+  text-align: center;
 }

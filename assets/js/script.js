@@ -32,7 +32,7 @@ function getProducts(page) {
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a style="cursor:pointer;"   onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                            <a style="cursor:pointer;"   onClick="addToCart('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -255,4 +255,14 @@ function Search() {
     .catch(err => {
       console.log(err);
     });
+}
+
+
+///////////////////add to cart
+
+function addToCart(id,quantity){
+  addItemToLocalStorage(id, quantity);
+
+  document.getElementById("header-cart").innerHTML=`<img src="assets/images/bag.png" alt=""
+  /><sub><span class="badge badge-pill badge-warning"> </span><sub>`;
 }

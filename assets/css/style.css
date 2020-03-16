@@ -201,3 +201,16 @@ footer .container{
 	font-style: italic;
 	color: #7f7d7d !important;
 }
+
+.badge-pill{
+	border-radius: 50%;
+	height: 10px;
+}
+
+label .cat , label .sup{
+	margin-right: 5px;
+}
+
+.card-body{
+	padding: .3rem 10px;
+}
