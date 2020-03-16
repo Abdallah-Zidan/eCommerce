@@ -1,21 +1,22 @@
 ## OS40 Electronics
 
-<img src="https://i.ibb.co/StyJqMX/Gaming-Laptop-Market.jpg" alt="Gaming-Laptop-Market" border="0">
+<p align="center">
+<img  src="https://i.ibb.co/StyJqMX/Gaming-Laptop-Market.jpg" alt="Gaming-Laptop-Market" border="0">
+</p>
 
 - This is an ecommerce simple project using Javascript - HTML5 - CSS3
 
 * Various javascript features are used in that project for example [ XmlHttpRequest , indexdDB , localtorage] and much more.
-*
 
 ### Contributers
 
-##### 1. Nour A. Elstohy.
+#### 1. Nour A. Elstohy.
 
-##### 2. Emad Saeed
+#### 2. Emad Saeed
 
-##### 3. Fatma Mohammed
+#### 3. Fatma Mohammed
 
-##### 4. Abd Allah Zidan
+#### 4. Abd Allah Zidan
 
 ### Features
 
@@ -35,35 +36,51 @@
 
 ##### Homepage
 
-<img src="https://i.ibb.co/Js2SktB/homepage.jpg" alt="homepage" border="0">
+<p align="center">
+<img align="center" src="https://i.ibb.co/Js2SktB/homepage.jpg" alt="homepage" border="0">
+</p>
 
 ##### Filter
 
-<img src="https://i.ibb.co/W6kYJ3k/filter.jpg" alt="filter" border="0">
+<p align="center">
+<img align="center" src="https://i.ibb.co/W6kYJ3k/filter.jpg" alt="filter" border="0">
+</p>
 
 ##### Product details
 
+<p align="center">
 <img src="https://i.ibb.co/SwNy4CQ/pdetails.jpg" alt="pdetails" border="0">
+</p>
 
 ##### Cart
 
+<p align="center">
 <img src="https://i.ibb.co/SfYgXHc/cart.jpg" alt="cart" border="0">
+</p>
 
 ##### Orders history
 
+<p align="center">
 <img src="https://i.ibb.co/Jzk4tv3/orders.jpg" alt="orders" border="0">
+</p>
 
 ##### Order details
 
+<p align="center">
 <img src="https://i.ibb.co/99yX2kK/details.jpg" alt="details" border="0">
+</p>
 
 ##### About us
 
+  <p align="center">
   <img src="https://i.ibb.co/DzGzMcH/about.jpg" alt="about" border="0">
+</p>
 
 ##### Contact us
 
+<p align="center">
 <img src="https://i.ibb.co/WyH2HYJ/contact.jpg" alt="contact" border="0">
+</p>
 
 ## To run the project
 
