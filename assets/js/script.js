@@ -32,7 +32,7 @@ function getProducts(page) {
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a  onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                            <a style="cursor:pointer;"   onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ function filterByCat(category) {
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                            <a style="cursor:pointer;"    onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})"  data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -168,7 +168,7 @@ function filterBySup(sup) {
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                            <a style="cursor:pointer;"    onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})"  data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@ function Search() {
                     <!-- Cart -->
                     <div class="ratings-cart text-right">
                         <div class="cart">
-                            <a  onClick="addItemToLocalStorage(${product.ProductId}, ${product.Quantity})" href="" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
+                            <a style="cursor:pointer;"  onClick="addItemToLocalStorage('${product.ProductId}', ${product.Quantity})"  data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/images/bag.png" alt=""></a>
                         </div>
                     </div>
                 </div>
