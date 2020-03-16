@@ -1,97 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Contact Us</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/contactus.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700,900,900i&display=swap">
-</head>
-<body>
-
-<header class="justify-content-start">
-    <nav class="navbar navbar-expand-lg ">
-        <p class="navbar-brand">OS Electronics</p>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/contactus.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:400,700,900,900i&display=swap"
+    />
+  </head>
+  <body>
+    <header class="justify-content-start">
+      <nav class="navbar navbar-expand-lg ">
+        <p class="navbar-brand">OS40 Electronics</p>
         <button
-                class="navbar-toggler amado-navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#NavContent"
-                aria-controls="NavContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+          class="navbar-toggler amado-navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#NavContent"
+          aria-controls="NavContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
         </button>
 
         <div class="collapse navbar-collapse" id="NavContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutus.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contactus.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a href="cart.html" class="nav-link" data-placement="left"
-                    ><img src="assets/images/bag.png" alt=""
-                    /></a>
-                </li>
-            </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a href="cart.html" class="nav-link" data-placement="left"
+                ><img src="assets/images/bag.png" alt=""
+              /></a>
+            </li>
+          </ul>
         </div>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<!-- start form-->
-<div class="container">
-    <h1 class="text-center contactus-title">Contact us</h1>
-    <form id="contactUsForm">
+    <!-- start form-->
+    <div class="container">
+      <h1 class="text-center contactus-title">Contact us</h1>
+      <form id="contactUsForm">
         <div id="sendingStatus"></div>
         <div class="form-group">
-            <input id="username" class="form-control" type="text" name="username" placeholder="Type your name.."
-                   minlength="3"
-                   maxlength="50" required>
-            <span class="mandatoryField">*</span>
-            <i class="fa fa-user inputIcon"></i>
+          <input
+            id="username"
+            class="form-control"
+            type="text"
+            name="username"
+            placeholder="Type your name.."
+            minlength="3"
+            maxlength="50"
+            required
+          />
+          <span class="mandatoryField">*</span>
+          <i class="fa fa-user inputIcon"></i>
         </div>
         <div class="form-group">
-            <input id="userEmail" class="form-control" type="email" name="email" placeholder="user@domain.com" required>
-            <i class="fa fa-envelope inputIcon"></i>
-            <span class="mandatoryField">*</span>
+          <input
+            id="userEmail"
+            class="form-control"
+            type="email"
+            name="email"
+            placeholder="user@domain.com"
+            required
+          />
+          <i class="fa fa-envelope inputIcon"></i>
+          <span class="mandatoryField">*</span>
         </div>
         <div class="form-group">
-            <input id="msgSubject" class="form-control" type="text" placeholder="Subject.." required>
-            <i class="fa fa-file inputIcon"></i>
-            <span class="mandatoryField">*</span>
+          <input
+            id="msgSubject"
+            class="form-control"
+            type="text"
+            placeholder="Subject.."
+            required
+          />
+          <i class="fa fa-file inputIcon"></i>
+          <span class="mandatoryField">*</span>
         </div>
         <div class="form-group">
-            <textarea id="msgBody" class="form-control" placeholder="Your message.." required></textarea>
+          <textarea
+            id="msgBody"
+            class="form-control"
+            placeholder="Your message.."
+            required
+          ></textarea>
         </div>
         <button id="sendBtn" class="btn btn-success" disabled>
-            <i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send
+          <i class="fa fa-paper-plane">&nbsp;&nbsp;</i>Send
         </button>
-    </form>
-</div>
-<!-- end form-->
-
-
-<footer class="footer_area clearfix">
-    <div class="container">
-        <p>All rights reserved OS Elctronics&copy;</p>
+      </form>
     </div>
-</footer>
+    <!-- end form-->
 
+    <footer class="footer_area clearfix">
+      <div class="container">
+        <p>All rights reserved OS40 Elctronics &copy; 2020</p>
+      </div>
+    </footer>
 
-<script src="assets/js/jquery-3.4.1.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/contactus.js"></script>
-</body>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/contactus.js"></script>
+  </body>
 </html>
